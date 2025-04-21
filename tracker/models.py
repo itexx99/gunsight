@@ -27,6 +27,8 @@ class Order(models.Model):
     date_out = models.DateField(null=True, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     notes = models.TextField(blank=True)
+    wants_engraving = models.BooleanField(default=False)
+    wants_electroplating = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Order #{self.id} - {self.customer.name}"
@@ -69,4 +71,15 @@ class GunPart(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.part_type}"
+    
+class Customization(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='customizations')
+    part_name = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+    finish_type = models.CharField(max_length=100)
+    design = models.ForeignKey(Design, on_delete=models.SET_NULL, null=True, blank=True)
+    image = models.ImageField(upload_to='customizations/', blank=True, null=True)
+
+    def __str__(self):
+        return f"Customization for {self.part_name} in Order #{self.order.id}"
 

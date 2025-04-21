@@ -50,7 +50,7 @@ python manage.py migrate
 
 5. **Create an admin**
 ```bash
-python manage.py createsuperuser #Follow instructions
+python manage.py createsuperuser
 ```
 
 6. **Start the development server**

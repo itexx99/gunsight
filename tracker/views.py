@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Order
 from django.db.models import Q
-from .forms import OrderForm
+from .forms import OrderForm, GunPartFormSet
 
 def home(request):
     return render(request, 'tracker/home.html')
@@ -24,9 +24,17 @@ def order_detail(request, order_id):
 def add_order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('order_list')  # Make sure this name matches the one in your url pattern
+        formset = GunPartFormSet(request.POST, request.FILES)
+        if form.is_valid() and formset.is_valid():
+            order = form.save()
+            formset.instance = order
+            formset.save()
+            return redirect('order_detail', order_id=order.id)
+            # return redirect('order_list')  # Make sure this name matches the one in your url pattern
     else:
         form = OrderForm()
-    return render(request, 'tracker/add_order.html', {'form': form})
+        formset = GunPartFormSet()
+    return render(request, 'tracker/add_order.html', {
+        'form': form,
+        'formset': formset,
+    })
