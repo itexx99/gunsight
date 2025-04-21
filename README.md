@@ -57,6 +57,7 @@ python manage.py createsuperuser #Follow instructions
 ```bash
 python manage.py runserver
 ```
+Web Address: http://127.0.0.1:8000/ # for development
 
 📌 Roadmap
  - Add status workflow: Received → In Progress → Complete
