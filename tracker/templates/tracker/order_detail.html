@@ -1,0 +1,15 @@
+{% extends 'tracker/base.html' %}
+{% block content %}
+    <h2>Order #{{ order.id }} - {{ order.customer.name }}</h2>
+    <p>Status: {{ order.status }}</p>
+    <p>Date In: {{ order.date_in }}</p>
+    <p>Date Out: {{ order.date_out }}</p>
+    <p>Notes: {{ order.notes }}</p>
+
+    <h3>Parts:</h3>
+    <ul>
+        {% for part in order.parts.all %}
+            <li>{{ part.name }} ({{ part.part_type }}) - {{ part.finish }}{% if part.design %}, Design: {{ part.design.name }}{% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
