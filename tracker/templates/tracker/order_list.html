@@ -1,6 +1,10 @@
 {% extends 'tracker/base.html' %}
 {% block content %}
     <h2>Orders</h2>
+
+    <!-- ➕ Add New Order Button -->
+    <a href="{% url 'add_order' %}" class="btn btn-success mb-3">➕ Add New Order</a>
+    
     <!-- 🔍 Search Form -->
     <form method="get" action="">
         <input type="text" name="q" placeholder="Search by Order Number..." value="{{ query }}">

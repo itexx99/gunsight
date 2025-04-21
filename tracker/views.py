@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Order
 from django.db.models import Q
+from .forms import OrderForm
 
 def home(request):
     return render(request, 'tracker/home.html')
@@ -19,3 +20,13 @@ def order_list(request):
 def order_detail(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     return render(request, 'tracker/order_detail.html', {'order': order})
+
+def add_order(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('order_list')  # Make sure this name matches the one in your url pattern
+    else:
+        form = OrderForm()
+    return render(request, 'tracker/add_order.html', {'form': form})
