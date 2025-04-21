@@ -1,0 +1,28 @@
+body {
+    font-family: sans-serif;
+    padding: 1rem 2rem;
+    background: #f6f6f6;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+nav a {
+    margin-right: 1rem;
+    color: #ddd;
+    text-decoration: none;
+}
+
+h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+strong {
+    color: #2a2a2a;
+    font-weight: 700;
+}
