@@ -1,9 +1,9 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
+from . import views as tracker_views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('orders/', views.order_list, name='order_list'),
-    path('orders/<int:order_id>/', views.order_detail, name='order_detail'),
-    path('add/', views.add_order, name='add_order'),
+    path('', tracker_views.order_list, name='order_list'),  # /orders/
+    path('add/', tracker_views.add_order, name='add_order'),  # /orders/add/
+    path('<int:order_id>/', tracker_views.order_detail, name='order_detail'),  # /orders/1/
 ]

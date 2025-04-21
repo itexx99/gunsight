@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from tracker import views as tracker_views
 
 urlpatterns = [
+    path('', tracker_views.home, name='home'),  # Homepage
     path('admin/', admin.site.urls),
-    path('', include('tracker.urls')),
-    path('orders/', include('tracker.urls')),
+    path('orders/', include('tracker.urls')),   # Include tracker app URLs
 ]
