@@ -57,9 +57,15 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
-Web Address: http://127.0.0.1:8000/ # for development
+Home Page Address: http://127.0.0.1:8000/ # for development
 
 📌 Roadmap
+ - Add Admin page
+ 
+ - Add/Modify orders
+
+ - View and search existing orders
+ 
  - Add status workflow: Received → In Progress → Complete
 
  - Implement file/image upload for engravings
