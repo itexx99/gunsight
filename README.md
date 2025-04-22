@@ -68,5 +68,13 @@ Web Address: http://127.0.0.1:8000/ # for development
 
  - Build customer portal for tracking orders
 
-🧠 Contributing
+## 🧠 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## 👤 Author
+
+<img src="https://avatars.githubusercontent.com/u/YOUR_GITHUB_ID?v=4" width="100"/>
+
+**Ivan Alvarado-Santoy**  
+Software Developer & Tech Enthusiast  
+📫 Reach me: ialvaradosantoy@gmail.com
