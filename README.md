@@ -57,7 +57,8 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
-Home Page Address: http://127.0.0.1:8000/ # for development
+Home Page Address: http://127.0.0.1:8000/ # for development, replace later
+Administrator Page: http://127.0.0.1:8000/admin/ # for development, replace later
 
 📌 Roadmap
  - Add Admin page
